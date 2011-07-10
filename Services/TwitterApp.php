@@ -34,7 +34,7 @@ class TwitterApp {
         return $this->twitter->post('direct_messages/new', array('text' => $text, 'screen_name' => $user));
     }    
     
-    public function getMessages($since = false)
+    public function getDirectMessages($since = false)
     {
         return $this->twitter->get('direct_messages', array('since_id' => $since));
     }
