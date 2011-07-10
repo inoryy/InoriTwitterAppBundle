@@ -1,6 +1,6 @@
 Important
 =========
-This bundle is only meant to use as a clientless app. 
+This bundle is only meant to be used as a clientless app. 
 If you want to add Twitter login/register/etc functionality to your app, please use the FOS/TwitterBundle instead
 
 Installation
@@ -45,13 +45,14 @@ Installation
 Using TwitterApp
 -----------------------
 
-If the setup is done correctly, then you start using TwitterApp like this:
+If the setup is done correctly, then you can start using TwitterApp like this:
 		
 		// ...
 		$ta = $this->get('twitter_app');
 		$messages = $ta->getDirectMessages();
 		
-TwitterApp comes with some basic methods for easier usage (tweet, follow), but for most of the API features you should use twitteroauth via getApi() method like this:
+TwitterApp comes with some basic methods for easier usage (tweet, follow), 
+but for most of the API features you should use twitteroauth via getApi() method like this:
 		
 		// ...
 		$ta = $this->get('twitter_app');
