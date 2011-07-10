@@ -41,8 +41,8 @@ Installation
                 file: %kernel.root_dir%/../vendor/twitteroauth/twitteroauth/twitteroauth.php
                 consumer_key: xxxxxx
                 consumer_secret: xxxxxx
-				oauth_token: %oauth_token%
-				oauth_token_secret: %oauth_token_secret%
+                oauth_token: %oauth_token%
+                oauth_token_secret: %oauth_token_secret%
 
 ================
 Using TwitterApp
