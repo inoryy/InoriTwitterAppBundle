@@ -1,0 +1,58 @@
+Important
+=========
+This bundle is only meant to use as a clientless app. 
+If you want to add Twitter login/register/etc functionality to your app, please use the FOS/TwitterBundle instead
+
+Installation
+============
+
+  1. Add this bundle and Abraham Williams' Twitter library to your project as Git submodules:
+
+          $ git submodule add git://github.com/Inori/InoriTwitterAppBundle.git vendor/bundles/Inori/TwitterAppBundle
+          $ git submodule add git://github.com/abraham/twitteroauth.git vendor/twitteroauth
+
+  2. Register the namespace `Inori` to your project's autoloader bootstrap script:
+
+          //app/autoload.php
+          $loader->registerNamespaces(array(
+                // ...
+                'Inori'    => __DIR__.'/../vendor/bundles',
+                // ...
+          ));
+
+  3. Add this bundle to your application's kernel:
+
+          //app/AppKernel.php
+          public function registerBundles()
+          {
+              return array(
+                  // ...
+                  new Inori\TwitterAppBundle\InoriTwitterAppBundle(),
+                  // ...
+              );
+          }
+
+  4. Configure the `twitter_app` service in your YAML configuration:
+
+            #app/config/config.yml
+            inori_twitter_app:
+                file: %kernel.root_dir%/../vendor/twitteroauth/twitteroauth/twitteroauth.php
+                consumer_key: xxxxxx
+                consumer_secret: xxxxxx
+				oauth_token: %oauth_token%
+				oauth_token_secret: %oauth_token_secret%
+
+Using TwitterApp
+-----------------------
+
+If the setup is done correctly, then you start using TwitterApp like this:
+		
+		// ...
+		$ta = $this->get('twitter_app');
+		$messages = $ta->getDirectMessages();
+		
+TwitterApp comes with some basic methods for easier usage (tweet, follow), but for most of the API features you should use twitteroauth via getApi() method like this:
+		
+		// ...
+		$ta = $this->get('twitter_app');
+		$trends = $ta->getApi()->get('trends');
