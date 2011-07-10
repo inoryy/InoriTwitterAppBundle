@@ -1,8 +1,10 @@
+=========
 Important
 =========
 This bundle is only meant to be used as a clientless app. 
 If you want to add Twitter login/register/etc functionality to your app, please use the FOS/TwitterBundle instead
 
+============
 Installation
 ============
 
@@ -42,8 +44,9 @@ Installation
 				oauth_token: %oauth_token%
 				oauth_token_secret: %oauth_token_secret%
 
+================
 Using TwitterApp
------------------------
+================
 
 If the setup is done correctly, then you can start using TwitterApp like this:
 		
