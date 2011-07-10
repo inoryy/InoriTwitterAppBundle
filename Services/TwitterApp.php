@@ -11,7 +11,6 @@ class TwitterApp {
     public function __construct(TwitterOAuth $twitter)
     {
         $this->twitter = $twitter;
-        $this->twitter->decode_json_to_array = true;
     }
     
     public function getApi()
