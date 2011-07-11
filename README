@@ -59,4 +59,4 @@ but for most of the API features you should use twitteroauth via getApi() method
 		
 		// ...
 		$ta = $this->get('twitter_app');
-		$trends = $ta->getApi()->get('trends');
+		$trends = $ta->getApi()->get('trends'); 
