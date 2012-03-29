@@ -9,6 +9,11 @@ use \TwitterOAuth;
  */
 class TwitterApp {
 
+    const RESPONSE_JSON   = 'json';
+    const RESPONSE_ATOM   = 'atom';
+    const RESPONSE_OBJECT = 'object';
+    const RESPONSE_ARRAY  = 'array';
+
     private $twitter;
 
     /**
@@ -76,5 +81,51 @@ class TwitterApp {
     public function getDirectMessages($since = false)
     {
         return $this->twitter->get('direct_messages', array('since_id' => $since));
+    }
+
+    /**
+     * Change response format
+     *
+     * @param string $format
+     *
+     * @return void
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function setResponseFormat($format = self::RESPONSE_JSON)
+    {
+        if (!in_array($format, $this->getSupportedResponseFormats())) {
+            throw new \InvalidArgumentException(sprintf('Unsupported format type (%s)', $format));
+        }
+
+        if (self::RESPONSE_ARRAY === $format) {
+            $this->twitter->format = 'json';
+            $this->twitter->decode_json = true;
+            //$this->twitter->decode_json_assoc = true; // uncomment when PR#122 is merged
+        } elseif (self::RESPONSE_OBJECT === $format) {
+            $this->twitter->format = 'json';
+            $this->twitter->decode_json = true;
+            //$this->twitter->decode_json_assoc = false; // uncomment when PR#122 is merged
+        } elseif (self::RESPONSE_JSON === $format) {
+            $this->twitter->format = 'json';
+            $this->twitter->decode_json = false;
+        } elseif (self::RESPONSE_ATOM === $format) {
+            $this->twitter->format = 'atom';
+        }
+    }
+
+    /**
+     * Fetch an array of supported response formats
+     *
+     * @return array
+     */
+    public function getSupportedResponseFormats()
+    {
+        return array(
+            self::RESPONSE_JSON,
+            self::RESPONSE_ATOM,
+            self::RESPONSE_OBJECT,
+            // self::RESPONSE_ARRAY // can't use it right now, add this back when PR#122 is merged
+        );
     }
 }
