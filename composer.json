@@ -1,0 +1,34 @@
+{
+    "name": "inori/twitter-app-bundle",
+    "type": "symfony-bundle",
+    "description": "Clientless Twitter application instance to help automate project twitter updates",
+    "keywords": ["Twitter"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Marintšenko",
+            "email": "inoryy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*",
+        "abraham/twitteroauth": "*"
+    },
+    "repositories": {
+        "twitteroauth": {
+            "type": "package",
+            "package": {
+                "name": "abraham/twitteroauth",
+                "source": {
+                    "url": "git://github.com/abraham/twitteroauth.git",
+                    "type": "git"
+                }
+            }
+        }
+    },
+    "autoload": {
+        "psr-0": { "Inori\\TwitterAppBundle": "" }
+    },
+    "target-dir": "Inori/TwitterAppBundle"
+}

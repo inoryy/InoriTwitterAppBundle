@@ -9,6 +9,7 @@ Example use-case for this bundle would be automated twitter messages (from your 
 
 # Installation
 
+#### With deps:
 Add this bundle and Abraham Williams' Twitter library to your application:
 
     [twitteroauth]
@@ -17,6 +18,18 @@ Add this bundle and Abraham Williams' Twitter library to your application:
     [InoriTwitterAppBundle]
         git=http://github.com/Inori/InoriTwitterAppBundle.git
         target=bundles/Inori/TwitterAppBundle
+
+#### With composer:
+Add this bundle to your composer.json:
+
+    // composer.json
+    {
+        // ...
+        require: {
+            // ...
+            "inori/twitter-app-bundle": "master"
+        }
+    }
 
 Register the namespace `Inori` to your project's autoloader bootstrap script:
 
