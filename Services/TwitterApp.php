@@ -54,16 +54,11 @@ class TwitterApp {
      */
     public function tweet($parameters)
     {
-        if (is_array($parameters)) 
-        {
+        if (is_array($parameters)) {
             return $this->twitter->post('statuses/update', $parameters);
-        }
-        else if (is_string($parameters)) 
-        {
+        } else if (is_string($parameters)) {
             return $this->twitter->post('statuses/update', array('status' => $parameters));
-        }
-        else
-        {
+        } else {
             throw new \InvalidArgumentException(sprintf('Parameter must be a string or an array ("%s" given).', gettype($parameters)));
         }
     }
