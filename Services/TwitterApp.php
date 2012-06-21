@@ -69,19 +69,6 @@ class TwitterApp {
     }
 
     /**
-     * Update status of a user (or tweet for short)
-     *
-     * @param string $status Message to tweet (max 140 characters)
-     *
-     * @return string JSON encoded array
-     */
-    public function tweet($status)
-    {
-        return $this->twitter->post('statuses/update', array('status' => $status));
-    }
-
-
-    /**
      * Follow a certain user
      *
      * @param string $user Username to follow
