@@ -37,7 +37,11 @@ class TwitterApp {
     /**
      * Update status of a user (or tweet for short)
      *
-     * @param array $parameters and array of parameters with keys such as:
+     * @param array or string $parameters 
+     *
+     *  If string given assumed to be the status body
+     *  
+     *  If array must be parameters with keys such as:
      *
      *  string 'status' - Message to tweet (max 140 characters).
      *  string 'lat' - The latitude of the location this tweet refers to.
@@ -48,10 +52,34 @@ class TwitterApp {
      *
      * @return string JSON encoded array
      */
-    public function tweet($parameters = array())
+    public function tweet($parameters)
     {
-        return $this->twitter->post('statuses/update', $parameters);
+        if (is_array($parameters)) 
+        {
+            return $this->twitter->post('statuses/update', $parameters);
+        }
+        else if (is_string($parameters)) 
+        {
+            return $this->twitter->post('statuses/update', array('status' => $parameters));
+        }
+        else
+        {
+            throw new \InvalidArgumentException(sprintf('Parameter must be a string or an array ("%s" given).', gettype($parameters)));
+        }
     }
+
+    /**
+     * Update status of a user (or tweet for short)
+     *
+     * @param string $status Message to tweet (max 140 characters)
+     *
+     * @return string JSON encoded array
+     */
+    public function tweet($status)
+    {
+        return $this->twitter->post('statuses/update', array('status' => $status));
+    }
+
 
     /**
      * Follow a certain user
