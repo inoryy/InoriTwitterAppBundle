@@ -19,10 +19,12 @@
         "twitteroauth": {
             "type": "package",
             "package": {
+                "version": "master",
                 "name": "abraham/twitteroauth",
                 "source": {
                     "url": "git://github.com/abraham/twitteroauth.git",
-                    "type": "git"
+                    "type": "git",
+                    "reference": "master"
                 }
             }
         }
