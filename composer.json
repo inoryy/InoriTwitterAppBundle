@@ -32,5 +32,6 @@
     "autoload": {
         "psr-0": { "Inori\\TwitterAppBundle": "" }
     },
-    "target-dir": "Inori/TwitterAppBundle"
+    "target-dir": "Inori/TwitterAppBundle",
+    "minimum-stability" : "dev"
 }
