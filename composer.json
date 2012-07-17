@@ -13,14 +13,18 @@
     "require": {
         "php": ">=5.3.2",
         "symfony/framework-bundle": "2.*",
-        "abraham/twitteroauth": "*"
+        "abraham/twitteroauth": "dev-master"
     },
-    "repositories": {
-        "twitteroauth": {
+    "repositories": [
+        {
             "type": "package",
             "package": {
-                "version": "master",
                 "name": "abraham/twitteroauth",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/abraham/twitteroauth/zipball/master",
+                    "type": "zip"
+                },
                 "source": {
                     "url": "git://github.com/abraham/twitteroauth.git",
                     "type": "git",
@@ -28,10 +32,9 @@
                 }
             }
         }
-    },
+    ],
     "autoload": {
         "psr-0": { "Inori\\TwitterAppBundle": "" }
     },
-    "target-dir": "Inori/TwitterAppBundle",
-    "minimum-stability" : "dev"
+    "target-dir": "Inori/TwitterAppBundle"
 }
