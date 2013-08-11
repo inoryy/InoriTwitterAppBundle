@@ -1,3 +1,8 @@
+# DISCONTINUED
+
+This project is no longer maintained by me. 
+If you want to take over, please get in touch with me at inoryy@gmail.com
+
 # Introduction
 
 TwitterAppBundle at its core is just a simple proxy bundle between twitteroauth client and symfony2.
