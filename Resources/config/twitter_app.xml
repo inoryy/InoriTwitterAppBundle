@@ -11,7 +11,7 @@
         <parameter key="inori_twitter_app.oauth_token">null</parameter>
         <parameter key="inori_twitter_app.oauth_token_secret">null</parameter>
         
-        <parameter key="inori_twitter_app.api.class">TwitterOAuth</parameter>
+        <parameter key="inori_twitter_app.api.class">Abraham\TwitterOAuth\TwitterOAuth</parameter>
         <parameter key="inori_twitter_app.service.class">Inori\TwitterAppBundle\Services\TwitterApp</parameter>        
     </parameters>
     
