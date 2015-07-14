@@ -2,7 +2,7 @@
 
 namespace Inori\TwitterAppBundle\Services;
 
-use \TwitterOAuth;
+use Abraham\TwitterOAuth\TwitterOAuth;
 
 /**
  * Very simple proxy class to TwitterOAuth functionality
